@@ -58,6 +58,13 @@
             "command": "make",
             "args": ["interest-earned"],
             "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build: lottery-tickets",
+            "type": "process",
+            "command": "make",
+            "args": ["lottery-tickets"],
+            "problemMatcher": ["$gcc"]
         }
     ]
 }
