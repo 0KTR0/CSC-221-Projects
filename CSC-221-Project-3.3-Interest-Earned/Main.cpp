@@ -1,7 +1,8 @@
 // This program calculates the final balance and interest earned of a compounding savings account after one year
 
 #include <iostream>
-#include <math.h>
+#include <iomanip>
+#include <cmath>
 
 using namespace std;
 
@@ -39,9 +40,7 @@ int main()
     finalBalance = principal * pow(1 + interestRateDecimal/annualCompoundRate,annualCompoundRate);
     interestEarned = finalBalance - principal;
 
-    //round answers to 2 decimal places
-    finalBalance = round(finalBalance * 100.0) / 100.0;
-    interestEarned = round(interestEarned * 100.0) / 100.0;
+    cout << fixed << setprecision(2);
     
     //Display results
     cout << "$" << finalBalance << " is the total amount in savings after a year.\n";
