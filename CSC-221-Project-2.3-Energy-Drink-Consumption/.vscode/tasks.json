@@ -1,0 +1,44 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Create build directory",
+			"type": "shell",
+			"command": "mkdir",
+			"args": [
+				"-p",
+				"${workspaceFolder}/build"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Build EnergyDrinkConsumption",
+			"type": "shell",
+			"command": "g++",
+			"args": [
+				"-std=c++17",
+				"-Wall",
+				"-Wextra",
+				"-pedantic",
+				"${workspaceFolder}/EnergyDrinkConsumption.cpp",
+				"-o",
+				"${workspaceFolder}/build/EnergyDrinkConsumption"
+			],
+			"isBackground": false,
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"dependsOn": "Create build directory",
+			"dependsOrder": "sequence"
+		},
+		{
+			"label": "Run EnergyDrinkConsumption",
+			"type": "shell",
+			"command": "${workspaceFolder}/build/EnergyDrinkConsumption",
+			"dependsOn": "Build EnergyDrinkConsumption",
+			"dependsOrder": "sequence",
+			"problemMatcher": []
+		}
+	]
+}
