@@ -1,0 +1,54 @@
+# Build outputs
+.build/
+build/
+Build/
+build-*/
+Debug/
+Release/
+debug/
+release/
+bin/
+obj/
+out/
+x64/
+x86/
+
+# Compiled files
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+*.pdb
+*.ilk
+*.gch
+*.pch
+
+# IDE and tool-generated files
+.vs/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Testing/
+.cache/
+*.user
+*.suo
+*.VC.db
+*.VC.VC.opendb
+*.tmp
+*.log
+*.swp
+*.bak
+*.dwo
+
+# Existing extensionless compiler outputs
+/CSC-221-Project-2.1-Ocean-Levels/OceanLevels
+/CSC-221-Project-2.2-Distance-Per-Tank-of-Gas/DistancePerTank
+/CSC-221-Project-3.3-Interest-Earned/Main

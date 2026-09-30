@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run active C++ file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/.build/${relativeFileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "preLaunchTask": "Build active C++ file"
+        }
+    ]
+}

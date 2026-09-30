@@ -20,18 +20,18 @@ int main()
     interestEarned;
 
     //Display purpose of program to user
-    cout << "This program calculates your Final balance and interest earned of your compounding savings account after one year\n";
+    cout << "This program calculates the Final balance and interest earned of your compounding savings account after one year\n";
 
     //Asks user for principal
-    cout << "Enter Starting Principal\n";
+    cout << "Enter Starting Amount:\n";
     cin >> principal;
 
     //ask user for interest rate percentage
-    cout << "Enter Interest rate\n";
+    cout << "Enter Interest rate: \n";
     cin >> interestRate;
 
     //ask user for Annualcompound rate
-    cout << "How many times does your Savings compound a year?\n";
+    cout << "How many times does your Savings compound a year?:\n";
     cin >> annualCompoundRate;
 
     //perform necessary calculations

@@ -1,2 +1,4 @@
-Github Repo which holds all my personal projects
-from CSC 221
+# CSC 221 Projects
+
+This repository collects my C++ assignments for CSC 221.
+

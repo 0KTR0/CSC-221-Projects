@@ -1,0 +1,63 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build all assignments",
+            "type": "process",
+            "command": "make",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build active C++ file",
+            "type": "shell",
+            "command": "mkdir -p \"${workspaceFolder}/.build/${relativeFileDirname}\" && g++ -std=c++17 -Wall -Wextra -pedantic -g \"${file}\" -o \"${workspaceFolder}/.build/${relativeFileDirname}/${fileBasenameNoExtension}\"",
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build: project-1.2",
+            "type": "process",
+            "command": "make",
+            "args": ["project-1.2"],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build: ocean-levels",
+            "type": "process",
+            "command": "make",
+            "args": ["ocean-levels"],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build: distance-per-tank",
+            "type": "process",
+            "command": "make",
+            "args": ["distance-per-tank"],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build: energy-drink-consumption",
+            "type": "process",
+            "command": "make",
+            "args": ["energy-drink-consumption"],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build: ingredient-adjuster",
+            "type": "process",
+            "command": "make",
+            "args": ["ingredient-adjuster"],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build: interest-earned",
+            "type": "process",
+            "command": "make",
+            "args": ["interest-earned"],
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}
