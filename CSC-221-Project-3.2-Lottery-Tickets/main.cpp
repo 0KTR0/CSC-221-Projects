@@ -15,7 +15,7 @@ int main()
     //Declare max and min for randomly generated number
     const int MIN = 1;
 
-    const int MAX = 6;
+    const int MAX = 9;
 
 // call random object to generate random bits
     random_device engine;
