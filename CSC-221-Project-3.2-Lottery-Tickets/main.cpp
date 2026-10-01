@@ -9,72 +9,33 @@ using namespace std;
 int main()
 
 {
-    //Declare variable to append randomly generated numbers too
+// Declare variable to append randomly generated numbers too
     string totalLotteryString;
 
-    //Declare max and min for randomly generated number
+// Declare max and min for randomly generated number
     const int MIN = 1;
-
     const int MAX = 9;
 
-// call random object to generate random bits
+// call random_device to generate random bits
     random_device engine;
-//
     uniform_int_distribution<int> diceValue(MIN, MAX);
 
 
+// for loop which generates the number and appends it to totalLotteryFunction
     for (int roll = 1; roll <= 6; ++roll){
 
         uniform_int_distribution<int> lotteryNumber(MIN, MAX);
-
+// calls random number generation then converts to string
         string lotteryString = to_string(lotteryNumber(engine));
-
+// appends lotteryString to totalLotteryString
         totalLotteryString += lotteryString;
-
-
-
-
-
-
-
-
-
     }
 
 
+    //Displays result of for loop
 
     cout << "Here's your Lottery Number!: " << totalLotteryString << endl;
-/*
-    int boi = 6;
 
-    int tuff = 7;
-
-    cout << boi + tuff << endl;
-
-// convert integers to strings
-    string boi_string = to_string(boi);
-    string tuff_string = to_string(tuff);
-
-    cout << boi_string + tuff_string << endl;
-
-//generate random number
-
-//set max and min of random number as constant
-    const int MIN = 1;
-
-    const int MAX = 6;
-// call random object to generate random bits
-    random_device engine;
-//
-    uniform_int_distribution<int> diceValue(MIN, MAX);
-
-    cout << "Rolling the dice...\n";
-
-    cout << diceValue(engine) << endl;
-
-    cout << diceValue(engine) << endl;
-
-*/
     return 0;
 
 
