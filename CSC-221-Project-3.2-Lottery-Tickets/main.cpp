@@ -43,7 +43,7 @@ int main()
 
 
 
-    cout << totalLotteryString << endl;
+    cout << "Here's your Lottery Number!: " << totalLotteryString << endl;
 /*
     int boi = 6;
 
