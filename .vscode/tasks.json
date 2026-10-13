@@ -65,6 +65,27 @@
             "command": "make",
             "args": ["lottery-tickets"],
             "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build: days-in-a-month",
+            "type": "process",
+            "command": "make",
+            "args": ["days-in-a-month"],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build: shipping-charges",
+            "type": "process",
+            "command": "make",
+            "args": ["shipping-charges"],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build: geometry-calculator",
+            "type": "process",
+            "command": "make",
+            "args": ["geometry-calculator"],
+            "problemMatcher": ["$gcc"]
         }
     ]
 }

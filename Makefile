@@ -9,9 +9,12 @@ PROGRAMS := \
 	$(BUILD_DIR)/energy-drink-consumption \
 	$(BUILD_DIR)/ingredient-adjuster \
 	$(BUILD_DIR)/interest-earned \
-	$(BUILD_DIR)/lottery-tickets
+	$(BUILD_DIR)/lottery-tickets \
+	$(BUILD_DIR)/days-in-a-month \
+	$(BUILD_DIR)/shipping-charges \
+	$(BUILD_DIR)/geometry-calculator
 
-.PHONY: all clean project-1.2 ocean-levels distance-per-tank energy-drink-consumption ingredient-adjuster interest-earned lottery-tickets
+.PHONY: all clean project-1.2 ocean-levels distance-per-tank energy-drink-consumption ingredient-adjuster interest-earned lottery-tickets days-in-a-month shipping-charges geometry-calculator
 
 all: $(PROGRAMS)
 
@@ -22,6 +25,9 @@ energy-drink-consumption: $(BUILD_DIR)/energy-drink-consumption
 ingredient-adjuster: $(BUILD_DIR)/ingredient-adjuster
 interest-earned: $(BUILD_DIR)/interest-earned
 lottery-tickets: $(BUILD_DIR)/lottery-tickets
+days-in-a-month: $(BUILD_DIR)/days-in-a-month
+shipping-charges: $(BUILD_DIR)/shipping-charges
+geometry-calculator: $(BUILD_DIR)/geometry-calculator
 
 $(BUILD_DIR):
 	mkdir -p $@
@@ -45,6 +51,15 @@ $(BUILD_DIR)/interest-earned: CSC-221-Project-3.3-Interest-Earned/Main.cpp | $(B
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 $(BUILD_DIR)/lottery-tickets: CSC-221-Project-3.2-Lottery-Tickets/main.cpp | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+$(BUILD_DIR)/days-in-a-month: CSC-221-Project-4.1-Days-in-a-Month/main.cpp | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+$(BUILD_DIR)/shipping-charges: CSC-221-Project-4.2-Shipping-Charges-Project/main.cpp | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+$(BUILD_DIR)/geometry-calculator: CSC-221-Project-4.3-Geometry-Calculator-Project/main.cpp | $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 clean:
