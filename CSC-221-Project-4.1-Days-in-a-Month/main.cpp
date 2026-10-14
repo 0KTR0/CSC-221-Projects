@@ -34,11 +34,11 @@ int main()
         leapYear = false;
     }
 //Determine validity of month input and number of days
-    if(userMonth == 1 || userMonth == 3 || userMonth == 5 || userMonth == 8 || userMonth == 10 || userMonth == 12){
+    if(userMonth == 1 || userMonth == 3 || userMonth == 5 || userMonth == 8 || userMonth == 10 || userMonth == 12 || userMonth == 7){
         days = 31;
     }
 
-    else if(userMonth == 4 || userMonth == 6 || userMonth == 7|| userMonth == 9 || userMonth == 11){
+    else if(userMonth == 4 || userMonth == 6 || userMonth == 9 || userMonth == 11){
         days = 30;
     }
     else if (userMonth == 2){
