@@ -4,7 +4,16 @@
 using namespace std;
 int main()
 {
-//initializing variables
+//Declaring constants
+    const int 
+    LEAP_CYCLE = 4,
+    CENTURY = 100,
+    LEAP_CENTURY_CYCLE = 400,
+    DAYS_LONG_MONTH = 31,
+    DAYS_SHORT_MONTH = 30,
+    DAYS_FEB_LEAP = 29,
+    DAYS_FEB_COMMON = 28;
+//Declaring variables
     int userYear, userMonth, days;
     bool leapYear;
 //Explaining purpose of program to user
@@ -16,8 +25,8 @@ int main()
     cout << "Enter a Month:\n";
     cin >> userMonth;
 //Determining whether or not the year is a leap year
-    if(userYear % 100 == 0){
-        if(userYear % 400 == 0){
+    if(userYear % CENTURY == 0){
+        if(userYear % LEAP_CENTURY_CYCLE == 0){
             leapYear = true;
         }
 
@@ -26,7 +35,7 @@ int main()
         }
     }
 
-    else if(userYear % 4 == 0){
+    else if(userYear % LEAP_CYCLE == 0){
         leapYear = true;
     }
 
@@ -35,19 +44,19 @@ int main()
     }
 //Determine validity of month input and number of days
     if(userMonth == 1 || userMonth == 3 || userMonth == 5 || userMonth == 8 || userMonth == 10 || userMonth == 12 || userMonth == 7){
-        days = 31;
+        days = DAYS_LONG_MONTH;
     }
 
     else if(userMonth == 4 || userMonth == 6 || userMonth == 9 || userMonth == 11){
-        days = 30;
+        days = DAYS_SHORT_MONTH;
     }
     else if (userMonth == 2){
         if(leapYear){
-            days = 29;
+            days = DAYS_FEB_LEAP;
         }
 
         else{
-            days = 28;
+            days = DAYS_FEB_COMMON;
         }
     }
     else{
