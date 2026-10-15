@@ -43,7 +43,7 @@ int main()
     }
 //else statment if packageWeight is greater than 20 or less than 0
     else{
-        cout << "Invalid Weight\nValid inputs between " << WEIGHT_MIN << "-" << WEIGHT_MAX;
+        cout << "Invalid Weight\nValid inputs between " << WEIGHT_MIN+1 << "-" << WEIGHT_MAX;
         return 0;
     }
 //logic to determine if shippingDistance is valid then performs equation for shippingUnits
