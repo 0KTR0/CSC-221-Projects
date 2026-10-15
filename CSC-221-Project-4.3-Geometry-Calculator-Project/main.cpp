@@ -61,6 +61,6 @@ int main()
         cout << "Invalid Input";
         return 0;
     }
-    cout << "The area of a " << userChoice << " is " << result;
+    cout << "The area of the " << userChoice << " is " << result;
     return 0;
 }
