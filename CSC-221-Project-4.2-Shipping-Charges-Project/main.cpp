@@ -15,6 +15,11 @@ int main()
     WEIGHT_BOUNDARY_3 = 2,
     DISTANCE_MAX = 3000,
     DISTANCE_MIN = 10;
+    const double
+    WEIGHT_BOUNDARY_1_PRICE = 4.80,
+    WEIGHT_BOUNDARY_2_PRICE = 3.70,
+    WEIGHT_BOUNDARY_3_PRICE = 2.20,
+    WEIGHT_BOUNDARY_4_PRICE = 1.10;
     
 //declare variables
     double packageWeight, shippingDistance, shippingUnits, milesRate, totalCost;
@@ -30,19 +35,19 @@ int main()
     if(packageWeight > WEIGHT_MIN && packageWeight <= WEIGHT_MAX){
 //1st group
         if(packageWeight > WEIGHT_BOUNDARY_1){
-            milesRate = 4.80;
+            milesRate = WEIGHT_BOUNDARY_1_PRICE;
         }
 //2nd group
         else if(packageWeight > WEIGHT_BOUNDARY_2){
-            milesRate = 3.70;
+            milesRate = WEIGHT_BOUNDARY_2_PRICE;
         }
 //3rd group
         else if(packageWeight > WEIGHT_BOUNDARY_3){
-            milesRate = 2.20;
+            milesRate = WEIGHT_BOUNDARY_3_PRICE;
         }
 //4th group
         else{
-            milesRate = 1.10;
+            milesRate = WEIGHT_BOUNDARY_4_PRICE;
         }
     }
 //else statment if packageWeight is greater than 20 or less than 0
