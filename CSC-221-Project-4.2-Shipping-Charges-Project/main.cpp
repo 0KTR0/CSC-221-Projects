@@ -10,8 +10,12 @@ int main()
     MILES_UNIT = 500,
     WEIGHT_MAX = 20,
     WEIGHT_MIN = 0,
+    WEIGHT_BOUNDARY_1 = 10,
+    WEIGHT_BOUNDARY_2 = 6,
+    WEIGHT_BOUNDARY_3 = 2,
     DISTANCE_MAX = 3000,
     DISTANCE_MIN = 10;
+    
 //declare variables
     double packageWeight, shippingDistance, shippingUnits, milesRate, totalCost;
 //Display purpose of program to user
@@ -25,15 +29,15 @@ int main()
 //logic to determine weight range and miles rate
     if(packageWeight > WEIGHT_MIN && packageWeight <= WEIGHT_MAX){
 //1st group
-        if(packageWeight > 10){
+        if(packageWeight > WEIGHT_BOUNDARY_1){
             milesRate = 4.80;
         }
 //2nd group
-        else if(packageWeight > 6){
+        else if(packageWeight > WEIGHT_BOUNDARY_2){
             milesRate = 3.70;
         }
 //3rd group
-        else if(packageWeight > 2){
+        else if(packageWeight > WEIGHT_BOUNDARY_3){
             milesRate = 2.20;
         }
 //4th group
