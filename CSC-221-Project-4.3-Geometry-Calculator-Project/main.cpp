@@ -13,12 +13,12 @@ int main()
 //Explain purpose of program to user
     cout << "This program Calculates the Area of a Circle, Rectangle, or Triangle" << endl;
 //Request user input
-    cout << "Select one of the options\n1. Circle\n2. Rectangle\n3. Triangle\n4. Quit" << endl;
+    cout << "1. Circle\n2. Rectangle\n3. Triangle\n4. Quit\nSelect one of the option above: ";
     cin >> userInput;
     switch(userInput){
         case CIRCLE_CASE:
             userChoice = "Circle";
-            cout << "Enter Radius: " << endl;
+            cout << "Enter Radius: ";
             cin >> radius;
             if(radius < 0){
                 cout << "Invalid Radius";
@@ -28,15 +28,15 @@ int main()
             break;
         case RECTANGLE_CASE:
             userChoice = "Rectangle";
-            cout << "Enter Width" << endl;
-            cin >> width;
-            if(width < 0){
-                cout << "Invalid Width";
-                return 0;
-            }
-            cout << "Enter Length" << endl;
+            cout << "Enter Length: ";
             cin >> length;
             if(length < 0){
+                cout << "Invalid Length";
+                return 0;
+            }
+            cout << "Enter Width: ";
+            cin >> width;
+            if(width < 0){
                 cout << "Invalid Width";
                 return 0;
             }
@@ -45,13 +45,13 @@ int main()
 
         case TRIANGLE_CASE:
             userChoice = "Triangle";
-            cout << "Enter Base" << endl;
+            cout << "Enter Base: ";
             cin >> base;
             if(base < 0){
                 cout << "Invalid Base";
                 return 0;
             }
-            cout << "Enter Height" << endl;
+            cout << "Enter Height: ";
             cin >> height;
             if(height < 0){
                 cout << "Invalid Height";
