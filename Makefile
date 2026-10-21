@@ -12,9 +12,12 @@ PROGRAMS := \
 	$(BUILD_DIR)/lottery-tickets \
 	$(BUILD_DIR)/days-in-a-month \
 	$(BUILD_DIR)/shipping-charges \
-	$(BUILD_DIR)/geometry-calculator
+	$(BUILD_DIR)/geometry-calculator \
+	$(BUILD_DIR)/population-growth \
+	$(BUILD_DIR)/student-lineup \
+	$(BUILD_DIR)/number-guessing-game
 
-.PHONY: all clean project-1.2 ocean-levels distance-per-tank energy-drink-consumption ingredient-adjuster interest-earned lottery-tickets days-in-a-month shipping-charges geometry-calculator
+.PHONY: all clean project-1.2 ocean-levels distance-per-tank energy-drink-consumption ingredient-adjuster interest-earned lottery-tickets days-in-a-month shipping-charges geometry-calculator population-growth student-lineup number-guessing-game
 
 all: $(PROGRAMS)
 
@@ -28,6 +31,9 @@ lottery-tickets: $(BUILD_DIR)/lottery-tickets
 days-in-a-month: $(BUILD_DIR)/days-in-a-month
 shipping-charges: $(BUILD_DIR)/shipping-charges
 geometry-calculator: $(BUILD_DIR)/geometry-calculator
+population-growth: $(BUILD_DIR)/population-growth
+student-lineup: $(BUILD_DIR)/student-lineup
+number-guessing-game: $(BUILD_DIR)/number-guessing-game
 
 $(BUILD_DIR):
 	mkdir -p $@
@@ -60,6 +66,15 @@ $(BUILD_DIR)/shipping-charges: CSC-221-Project-4.2-Shipping-Charges-Project/main
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 $(BUILD_DIR)/geometry-calculator: CSC-221-Project-4.3-Geometry-Calculator-Project/main.cpp | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+$(BUILD_DIR)/population-growth: CSC-221-Project-5.1-Population-Growth/main.cpp | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+$(BUILD_DIR)/student-lineup: CSC-221-Project-5.2-Student-Lineup/main.cpp | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+$(BUILD_DIR)/number-guessing-game: CSC-221-Project-5.5-Number-Guessing-Game/main.cpp | $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 clean:

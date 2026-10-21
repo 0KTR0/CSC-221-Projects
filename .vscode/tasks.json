@@ -86,6 +86,27 @@
             "command": "make",
             "args": ["geometry-calculator"],
             "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build: population-growth",
+            "type": "process",
+            "command": "make",
+            "args": ["population-growth"],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build: student-lineup",
+            "type": "process",
+            "command": "make",
+            "args": ["student-lineup"],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build: number-guessing-game",
+            "type": "process",
+            "command": "make",
+            "args": ["number-guessing-game"],
+            "problemMatcher": ["$gcc"]
         }
     ]
 }
