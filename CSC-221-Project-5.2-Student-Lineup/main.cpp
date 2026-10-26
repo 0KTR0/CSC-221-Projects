@@ -16,8 +16,8 @@ int main()
     random_device engine;
     uniform_int_distribution<int> distribution{MIN, MAX};
     target = distribution(engine);
-    // Do-While loop which loops untill userGuess == target
     //cout << target << endl;
+    // Do-While loop which loops untill userGuess == target
     do{
         cout << "Guess the Target!: ";
         cin >> userGuess;
