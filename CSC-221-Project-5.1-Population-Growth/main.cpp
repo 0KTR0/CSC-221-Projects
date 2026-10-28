@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -43,7 +44,7 @@ int main()
     for (int count = 1; count < days; count++){
         populationIncrease = calculationPopulation * (populationIncreasePercantage / 100);
         newestPopulation = calculationPopulation + populationIncrease;
-        cout << newestPopulation << " Organisms is the Population of Day " << count + 1 << ".\n";
+        cout << fixed << setprecision(2) << newestPopulation << " Organisms is the Population of Day " << count + 1 << ".\n";
         calculationPopulation = newestPopulation;
         
     }
