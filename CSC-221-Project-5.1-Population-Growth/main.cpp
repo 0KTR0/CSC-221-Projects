@@ -6,6 +6,10 @@ using namespace std;
 int main()
 
 {
+    const int MIN_STARTING_POPULATION = 2;
+    const double MIN_POPULATION_INCREASE_RATE = 0.0;
+    const int MIN_DAYS = 1;
+
     int startingPopulation, days;
     double populationIncreasePercantage, populationIncrease, newestPopulation, calculationPopulation;
 
@@ -13,28 +17,28 @@ int main()
     do{
         cout << "Enter the Starting Population: ";
         cin >> startingPopulation;
-        if (startingPopulation < 2){
+        if (startingPopulation < MIN_STARTING_POPULATION){
             cout << "Invalid Input, Starting Population Must Greater than 1.\n";
         }
-     } while(startingPopulation < 2);
+     } while(startingPopulation < MIN_STARTING_POPULATION);
 
      //Get input for Population Percentage Increase
      do{
         cout << "Enter the rate Population increases daily: ";
         cin >> populationIncreasePercantage;
-        if (populationIncreasePercantage <= 0){
+        if (populationIncreasePercantage <= MIN_POPULATION_INCREASE_RATE){
             cout << "Invalid Input, Must be greater than 0.\n";
         }
-     } while(populationIncreasePercantage <= 0);
+     } while(populationIncreasePercantage <= MIN_POPULATION_INCREASE_RATE);
 
      //Get input for Number of days to predict
      do{
         cout << "How many Days would you like to Calculate: ";
         cin >> days;
-        if (days < 1){
+        if (days < MIN_DAYS){
             cout << "Invalid Input, Number of Days must be Greater than 0.\n";
         }
-     } while(days < 1);
+     } while(days < MIN_DAYS);
     //perform calculations
 
     //Display the first day to the user.
