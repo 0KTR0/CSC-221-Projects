@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    string currentName, firstName = "ZZZ", lastName = " ";
+    string currentName, firstName, lastName;
     int count = 0;
 
     ifstream inputFile("CSC-221-Project-5.2-Student-Lineup/People.txt");
@@ -13,10 +13,15 @@ int main()
         cout << "Error opening file.\n";
         return 1;
     }
-
+    
 
     while (getline(inputFile, currentName))
     {
+        if (count == 0) {
+            firstName = currentName;
+            lastName = currentName;
+        }
+
         if (currentName < firstName){
             firstName = currentName;
         }
