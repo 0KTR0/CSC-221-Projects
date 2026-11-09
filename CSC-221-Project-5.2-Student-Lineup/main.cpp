@@ -7,7 +7,7 @@ int main()
     string currentName, firstName, lastName;
     int count = 0;
 
-    ifstream inputFile("CSC-221-Project-5.2-Student-Lineup/People.txt");
+    ifstream inputFile("CSC-221-Project-5.2-Student-Lineup/LineUp.txt");
 
     if (!inputFile){
         cout << "Error opening file.\n";
