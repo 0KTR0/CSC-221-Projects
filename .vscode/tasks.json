@@ -107,6 +107,20 @@
             "command": "make",
             "args": ["number-guessing-game"],
             "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build: rectangle-properties",
+            "type": "process",
+            "command": "make",
+            "args": ["rectangle-properties"],
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Build: paint-job-estimator",
+            "type": "process",
+            "command": "make",
+            "args": ["paint-job-estimator"],
+            "problemMatcher": ["$gcc"]
         }
     ]
 }

@@ -15,9 +15,11 @@ PROGRAMS := \
 	$(BUILD_DIR)/geometry-calculator \
 	$(BUILD_DIR)/population-growth \
 	$(BUILD_DIR)/student-lineup \
-	$(BUILD_DIR)/number-guessing-game
+	$(BUILD_DIR)/number-guessing-game \
+	$(BUILD_DIR)/rectangle-properties \
+	$(BUILD_DIR)/paint-job-estimator
 
-.PHONY: all clean project-1.2 ocean-levels distance-per-tank energy-drink-consumption ingredient-adjuster interest-earned lottery-tickets days-in-a-month shipping-charges geometry-calculator population-growth student-lineup number-guessing-game
+.PHONY: all clean project-1.2 ocean-levels distance-per-tank energy-drink-consumption ingredient-adjuster interest-earned lottery-tickets days-in-a-month shipping-charges geometry-calculator population-growth student-lineup number-guessing-game rectangle-properties paint-job-estimator
 
 all: $(PROGRAMS)
 
@@ -34,6 +36,8 @@ geometry-calculator: $(BUILD_DIR)/geometry-calculator
 population-growth: $(BUILD_DIR)/population-growth
 student-lineup: $(BUILD_DIR)/student-lineup
 number-guessing-game: $(BUILD_DIR)/number-guessing-game
+rectangle-properties: $(BUILD_DIR)/rectangle-properties
+paint-job-estimator: $(BUILD_DIR)/paint-job-estimator
 
 $(BUILD_DIR):
 	mkdir -p $@
@@ -75,6 +79,12 @@ $(BUILD_DIR)/student-lineup: CSC-221-Project-5.2-Student-Lineup/main.cpp | $(BUI
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 $(BUILD_DIR)/number-guessing-game: CSC-221-Project-5.5-Number-Guessing-Game/main.cpp | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+$(BUILD_DIR)/rectangle-properties: CSC-221-Project-6.1-Rectangle-Properties/main.cpp | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+$(BUILD_DIR)/paint-job-estimator: CSC-221-Project-6.2-Paint-Job-Estimator/main.cpp | $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 clean:
