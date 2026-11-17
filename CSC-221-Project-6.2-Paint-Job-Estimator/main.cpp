@@ -18,11 +18,8 @@ int getRoomCount(int roomCount){
 }
 
 void getTotalAreaAndPaintPrice(double& totalSqFt, double& weightedPriceSum, int roomCount){
-    int roomSqFt;
-    double roomPaintPrice;
+    double roomPaintPrice, roomSqFt;
     for (int count = 1; count <= roomCount; count++){
-        cout << "Count: " << count << endl;
-
         do{
             cout << "What is this rooms area?: ";
             cin >> roomSqFt;
@@ -49,16 +46,47 @@ void getTotalAreaAndPaintPrice(double& totalSqFt, double& weightedPriceSum, int 
     }
 }
 
-void displayProperties(double totalSqFt, int totalGallons, double laborHours, double PaintCost, double laborCost, double totalCost){
+void displayProperties(double totalSqFt, int totalGallons, double laborHours, double paintCost, double laborCost, double totalCost){
     cout << fixed << setprecision(2) << "Total area: " << totalSqFt << " square feet" << endl;
-    cout << fixed << setprecision(2) << "To purchase: " << totalGallons << " gallons" << endl;
+    cout << fixed << setprecision(2) << totalGallons << " Gallons to Purchase" << endl;
     cout << fixed << setprecision(2) << "Labor hours: " << laborHours << endl;
     cout << fixed << setprecision(2) << "Estimated paint cost: $" << paintCost << endl;
     cout << fixed << setprecision(2) << "Labor charges: $" << laborCost << endl;
     cout << fixed << setprecision(2) << "Total estimated cost: $" << totalCost << endl;
 }
-int getTotalGallons(int totalGallons, double totalSqFt, double GALLONS_PER_SQ_FT){
-    return totalGallons = ceil(totalSqFt * GALLONS_PER_SQ_FT);
+int getTotalGallons(double totalSqFt, double GALLONS_PER_SQ_FT){
+    return ceil(totalSqFt * GALLONS_PER_SQ_FT);
+}
+void getLaborHoursAndCost(double& laborHours, double& laborCost, double totalSqFt, double LABOR_HOURS_PER_SQ_FT, double LABOR_RATE){
+        laborHours = totalSqFt * LABOR_HOURS_PER_SQ_FT;
+        laborCost = laborHours * LABOR_RATE;
+}
+double getAveragePaintPrice(double weightedPriceSum, double totalSqFt){
+    return weightedPriceSum / totalSqFt;
+}
+void getFinalCosts(double& paintCost, double& totalCost, int totalGallons, double averagePaintPrice, double laborCost){
+        paintCost = totalGallons * averagePaintPrice;
+        totalCost = paintCost + laborCost;
+}
+void initializeCalculations(double totalSqFt, double weightedPriceSum, 
+                            double GALLONS_PER_SQ_FT, double LABOR_HOURS_PER_SQ_FT, double LABOR_RATE,
+                            int& totalGallons, double& laborHours, double& laborCost, 
+                            double& averagePaintPrice, double& paintCost, double& totalCost) 
+{
+    if (totalSqFt != 0) {
+        totalGallons = getTotalGallons(totalSqFt, GALLONS_PER_SQ_FT);
+        getLaborHoursAndCost(laborHours, laborCost, totalSqFt, LABOR_HOURS_PER_SQ_FT, LABOR_RATE);
+        averagePaintPrice = getAveragePaintPrice(weightedPriceSum, totalSqFt);
+        getFinalCosts(paintCost, totalCost, totalGallons, averagePaintPrice, laborCost);
+    }
+    else {
+        totalGallons = 0;
+        laborHours = 0.0;
+        laborCost = 0.0;
+        averagePaintPrice = 0.0;
+        paintCost = 0.0;
+        totalCost = 0.0;
+    }
 }
 int main()
 {
@@ -70,84 +98,9 @@ int main()
 
     roomCount = getRoomCount(roomCount);
     getTotalAreaAndPaintPrice(totalSqFt, weightedPriceSum, roomCount);
-    totalGallons = getTotalGallons(totalGallons, totalSqFt, GALLONS_PER_SQ_FT);
-    cout << roomCount;
+    initializeCalculations(totalSqFt, weightedPriceSum, GALLONS_PER_SQ_FT, LABOR_HOURS_PER_SQ_FT, LABOR_RATE, 
+        totalGallons, laborHours, laborCost, 
+        averagePaintPrice, paintCost, totalCost);
+    displayProperties(totalSqFt, totalGallons, laborHours, paintCost, laborCost, totalCost);
 
-/*
-    double totalSqFt = 0.0, roomSqFt, laborHours, laborCost, weightedPriceSum = 0.0, averagePaintPrice, paintCost, totalCost, roomPaintPrice;
-    int roomCount, totalGallons;
-// Do-while loop which asks the user for number of rooms untill valid input over 0
-    do{
-        cout << "Enter the number of rooms: ";
-        cin >> roomCount;
-        if (cin.fail() || roomCount <= 0){
-            cout << "Invalid Input\n";
-            roomCount = -1;
-            cin.clear();
-            cin.ignore(10000, '\n');
-        }
-    } while (roomCount <= 0);
-
-// for loop determinate by room count which asks each rooms area and paint price
-    for (int count = 1; count <= roomCount; count++){
-        cout << "Count: " << count << endl;
-
-        do{
-            cout << "What is this rooms area?: ";
-            cin >> roomSqFt;
-            if (cin.fail() || roomSqFt < 0){
-                cout << "Invalid Input\n";  
-                roomSqFt = -1;
-                cin.clear();
-                cin.ignore(10000, '\n'); 
-            }
-        } while (roomSqFt < 0);
-        totalSqFt += roomSqFt;
-
-        do{
-            cout << "What is this rooms paint price?: $";
-            cin >> roomPaintPrice;
-            if (cin.fail() || roomPaintPrice < 10){
-                cout << "Invalid Input\n";
-                roomPaintPrice = -1;
-                cin.clear();
-                cin.ignore(10000, '\n');   
-            }
-        } while (roomPaintPrice < 10);
-        weightedPriceSum  +=  (roomSqFt * roomPaintPrice);
-
-    }
-// if logic to determine if calculations will result in error
-    if (totalSqFt != 0){
-// calculate total galllons
-        totalGallons = ceil(totalSqFt * GALLONS_PER_SQ_FT);
-// calculate labor hours
-        laborHours = totalSqFt * LABOR_HOURS_PER_SQ_FT;
-// calculate labor cost
-        laborCost = laborHours * LABOR_RATE;
-// calculate average paint price
-        averagePaintPrice = weightedPriceSum / totalSqFt;
-// calculate paint cost
-        paintCost = totalGallons * averagePaintPrice;
-// calculate total cost
-        totalCost = paintCost + laborCost;  
-    }
-    else{
-        averagePaintPrice = 0;
-        totalGallons = 0;
-        paintCost = 0;
-        laborHours = 0;
-        laborCost = 0;
-        totalCost = 0;
-    }
-
-// display total gallons, sqft, labor hours, paintcost, labor cost, and total cost.
-    cout << fixed << setprecision(2) << "Total area: " << totalSqFt << " square feet" << endl;
-    cout << fixed << setprecision(2) << "To purchase: " << totalGallons << " gallons" << endl;
-    cout << fixed << setprecision(2) << "Labor hours: " << laborHours << endl;
-    cout << fixed << setprecision(2) << "Estimated paint cost: $" << paintCost << endl;
-    cout << fixed << setprecision(2) << "Labor charges: $" << laborCost << endl;
-    cout << fixed << setprecision(2) << "Total estimated cost: $" << totalCost << endl;
-    return 0;
-    */
 }
