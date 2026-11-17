@@ -14,8 +14,11 @@ int main()
     do{
         cout << "Enter the number of rooms: ";
         cin >> roomCount;
-        if (roomCount <= 0){
+        if (cin.fail() || roomCount <= 0){
             cout << "Invalid Input\n";
+            roomCount = -1;
+            cin.clear();
+            cin.ignore(10000, '\n');
         }
     } while (roomCount <= 0);
 
@@ -26,34 +29,51 @@ int main()
         do{
             cout << "What is this rooms area?: ";
             cin >> roomSqFt;
-            if (roomSqFt <= 0){
-                cout << "Invalid Input\n";   
+            if (cin.fail() || roomSqFt < 0){
+                cout << "Invalid Input\n";  
+                roomSqFt = -1;
+                cin.clear();
+                cin.ignore(10000, '\n'); 
             }
-        } while (roomSqFt <= 0);
+        } while (roomSqFt < 0);
         totalSqFt += roomSqFt;
 
         do{
             cout << "What is this rooms paint price?: $";
             cin >> roomPaintPrice;
-            if (roomPaintPrice < 10){
-                cout << "Invalid Input\n";   
+            if (cin.fail() || roomPaintPrice < 10){
+                cout << "Invalid Input\n";
+                roomPaintPrice = -1;
+                cin.clear();
+                cin.ignore(10000, '\n');   
             }
         } while (roomPaintPrice < 10);
         weightedPriceSum  +=  (roomSqFt * roomPaintPrice);
 
     }
+// if logic to determine if calculations will result in error
+    if (totalSqFt != 0){
 // calculate total galllons
-    totalGallons = ceil(totalSqFt * GALLONS_PER_SQ_FT);
+        totalGallons = ceil(totalSqFt * GALLONS_PER_SQ_FT);
 // calculate labor hours
-    laborHours = totalSqFt * LABOR_HOURS_PER_SQ_FT;
+        laborHours = totalSqFt * LABOR_HOURS_PER_SQ_FT;
 // calculate labor cost
-    laborCost = laborHours * LABOR_RATE;
+        laborCost = laborHours * LABOR_RATE;
 // calculate average paint price
-    averagePaintPrice = weightedPriceSum / totalSqFt;
+        averagePaintPrice = weightedPriceSum / totalSqFt;
 // calculate paint cost
-    paintCost = totalGallons * averagePaintPrice;
+        paintCost = totalGallons * averagePaintPrice;
 // calculate total cost
-    totalCost = paintCost + laborCost;
+        totalCost = paintCost + laborCost;  
+    }
+    else{
+        averagePaintPrice = 0;
+        totalGallons = 0;
+        paintCost = 0;
+        laborHours = 0;
+        laborCost = 0;
+        totalCost = 0;
+    }
 
 // display total gallons, sqft, labor hours, paintcost, labor cost, and total cost.
     cout << fixed << setprecision(2) << "Total area: " << totalSqFt << " square feet" << endl;
