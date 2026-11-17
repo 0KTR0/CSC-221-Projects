@@ -3,7 +3,8 @@
 #include <iomanip>
 using namespace std;
 
-int getRoomCount(int roomCount){
+int getRoomCount(){
+    int roomCount;
     do{
         cout << "Enter the number of rooms: ";
         cin >> roomCount;
@@ -96,7 +97,7 @@ int main()
     double totalSqFt = 0.0, laborHours, laborCost, weightedPriceSum = 0.0, averagePaintPrice, paintCost, totalCost;
     int roomCount, totalGallons;
 
-    roomCount = getRoomCount(roomCount);
+    roomCount = getRoomCount();
     getTotalAreaAndPaintPrice(totalSqFt, weightedPriceSum, roomCount);
     initializeCalculations(totalSqFt, weightedPriceSum, GALLONS_PER_SQ_FT, LABOR_HOURS_PER_SQ_FT, LABOR_RATE, 
         totalGallons, laborHours, laborCost, 
